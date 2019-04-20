@@ -19,19 +19,6 @@ font xft:SourceCodePro-Regular 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec terminal
-
-# kill focused window
-bindsym $mod+q kill
-
-# start program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+d exec rofi -show run -theme Monokai.rasi
-
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-
 ################################################################################################
 
 # Start Applications
@@ -50,6 +37,16 @@ bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 bindsym $mod+n exec terminal -e './Programms/p-kill-switch'
+
+# start program launcher
+# bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec rofi -show run -theme ~/.config/rofi/Monokai.rasi
+
+# start a terminal
+bindsym $mod+Return exec terminal
+
+# kill focused window
+bindsym $mod+q kill
 
 # focus_follows_mouse no
 
@@ -266,7 +263,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # Change the variable name at the place you want to match the color
 # of your terminal like this:
 # [example]
-# If you want your bar to have the same background color as your 
+# If you want your bar to have the same background color as your
 # terminal background change the line 362 from:
 # background #14191D
 # to:
@@ -308,11 +305,11 @@ bar {
 
     colors {
         background $term_background
-        statusline $term_color1
+        statusline $term_color7
         separator  $term_color1
 
 #                          border        backgr.       text
-        focused_workspace  $term_color15 $term_color1  $term_color0
+        focused_workspace  $term_color15 $term_color7  $term_color0
         active_workspace   $term_color8  $term_color0  $term_color7
         inactive_workspace $term_color8  $term_color0  $term_color7
         binding_mode       $term_color4  $term_color15 $term_color4
@@ -320,16 +317,13 @@ bar {
     }
 }
 
-# hide/unhide i3status bar
-#bindsym $mod+m bar mode toggle
-
 # Theme colors
 # class                   border        backgr.       text          indic.
-  client.focused          $term_color1  $term_color1  $term_color6  $term_color15
-  client.focused_inactive $term_color0  $term_color0  $term_color4  $term_color8
-  client.unfocused        $term_color0  $term_color0  $term_color4  $term_color8
+  client.focused          $term_color8  $term_color8  $term_color0  $term_color15
+  client.focused_inactive $term_color0  $term_color0  $term_color8  $term_color8
+  client.unfocused        $term_color0  $term_color0  $term_color8  $term_color8
   client.urgent           $term_color1  $term_color15 $term_color4  $term_color6
-  client.placeholder      $term_color0  $term_color0  $term_color15 $term_color0 
+  client.placeholder      $term_color0  $term_color0  $term_color15 $term_color0
 
   client.background       $term_background
 
@@ -346,6 +340,6 @@ gaps outer -2
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
